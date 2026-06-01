@@ -13,7 +13,6 @@ accounts.main.json
 src/browser/sessions/
 *.log
 .vscode/
-.github/
 diagnostic/
 report/
 accounts.json
