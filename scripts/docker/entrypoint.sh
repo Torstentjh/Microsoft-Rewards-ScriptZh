@@ -1,5 +1,6 @@
 #!/bin/sh
-set -e
+#set -e
+set -euo pipefail
 
 # Ensure Playwright uses preinstalled browsers
 export PLAYWRIGHT_BROWSERS_PATH=0
@@ -88,9 +89,12 @@ i=1
 while true; do
   #email_var="ACCOUNT_${i}_EMAIL"
   #pass_var="ACCOUNT_${i}_PASSWORD"
-  email=$(printenv "ACCOUNT_${i}_EMAIL")
-  pass=$(printenv "ACCOUNT_${i}_PASSWORD")
-  email="${!email_var:-}"
+  #email="${!email_var:-}"
+  email_var="ACCOUNT_${i}_EMAIL"
+pass_var="ACCOUNT_${i}_PASSWORD"
+
+email=$(printenv "$email_var")
+pass=$(printenv "$pass_var")
   [ -z "$email" ] && break
   pass="${!pass_var:?ERROR: ${pass_var} must be set when ${email_var} is set}"
 
