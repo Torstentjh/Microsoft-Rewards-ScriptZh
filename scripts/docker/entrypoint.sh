@@ -87,14 +87,14 @@ _build_account_json() {
 account_array="[]"
 i=1
 while true; do
-  #email_var="ACCOUNT_${i}_EMAIL"
-  #pass_var="ACCOUNT_${i}_PASSWORD"
-  #email="${!email_var:-}"
   email_var="ACCOUNT_${i}_EMAIL"
-pass_var="ACCOUNT_${i}_PASSWORD"
+  pass_var="ACCOUNT_${i}_PASSWORD"
+  email="${!email_var:-}"
+  #email_var="ACCOUNT_${i}_EMAIL"
+#pass_var="ACCOUNT_${i}_PASSWORD"
 
-email=$(printenv "$email_var")
-pass=$(printenv "$pass_var")
+#email=$(printenv "$email_var")
+#pass=$(printenv "$pass_var")
   [ -z "$email" ] && break
   pass="${!pass_var:?ERROR: ${pass_var} must be set when ${email_var} is set}"
 
